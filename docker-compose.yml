@@ -1,0 +1,14 @@
+version: '3.2'
+
+services:
+  db:
+    image: mssqldocker
+    environment:
+      ACCEPT_EULA: Y
+      SA_PASSWORD: 2astazeY
+      MSSQL_DB: dev
+      MSSQL_USER: Kobeissi
+      MSSQL_PASSWORD: 7ellowEl7akey
+    ports:
+      - "1433:1433"
+    container_name: mssqldev
