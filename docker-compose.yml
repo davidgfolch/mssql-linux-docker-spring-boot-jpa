@@ -2,6 +2,7 @@ version: '3.2'
 
 services:
   db:
+    build: .
     image: mssqldocker
     environment:
       ACCEPT_EULA: Y
