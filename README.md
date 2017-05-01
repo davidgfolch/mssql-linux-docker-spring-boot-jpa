@@ -4,24 +4,49 @@
 * Configure the database with a database and user
 
 # How to Run
+## Clone this repo
+```
+git clone https://github.com/mcmoe/mssqldocker.git
+```
+
+## From DockerHub
+The latest image is available on DockerHub
+```
+https://hub.docker.com/r/mcmoe/mssqldocker/
+```
+
+If you just want to use the image, you only need the `docker-compose.yml`.
+
+All you have to do is pull the image and kick off a container from it
+```
+docker-compose pull
+docker-compose up
+```
+
 ## Building the image for the first time
-Git clone this project:
+If you want to modify the files in the image, then you'll have to build locally.
+
+Build with `docker-compose`:
 ```
-git clone https://github.com/mcmoe/mssql-docker.git
+docker-compose build
 ```
-Build the container:
-```
-docker build -t mssqldocker .
-```
-Then, run the container (add a -d to run container in background):
+## Running the container
+
+Running with `docker run` (add a -d to run container in background):
 ```
 docker run --rm -e ACCEPT_EULA=Y -e SA_PASSWORD=2astazeY -e MSSQL_DB=dev -e MSSQL_USER=Kobeissi -e MSSQL_PASSWORD=7ellowEl7akey -p 1433:1433 --name mssqldev mssqldocker
 ```
+Running with `docker-compose`
+```
+docker-compose up
+```
+
+NOTE: You can modify the env variables in the `docker-compose.yml`
+
 Note: MSSQL passwords must be at least 8 characters long, contain upper case, lower case and digits.  
 Configuration of the server will occur once it runs; the MSSQL* env variables are required for this step.
 
-For a simpler run commad, use `docker-compose up` - modify the env variables in the `docker-compose.yml`
-
+## Connecting to the container
 To connect to the SQL Server in the container, you can docker exec with sqlcmd.
 ```
 docker exec -it mssqldev /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P $SA_PASSWORD
