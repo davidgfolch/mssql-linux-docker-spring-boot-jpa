@@ -17,10 +17,9 @@ https://hub.docker.com/r/mcmoe/mssqldocker/
 
 If you just want to use the image, you only need the `docker-compose.yml`.
 
-All you have to do is pull the image and kick off a container from it
+Pulling the image
 ```
 docker-compose pull
-docker-compose up
 ```
 
 ## Building the image for the first time
@@ -30,21 +29,20 @@ Build with `docker-compose`:
 ```
 docker-compose build
 ```
+
 ## Running the container
 
-Running with `docker run` (add a -d to run container in background):
-```
-docker run --rm -e ACCEPT_EULA=Y -e SA_PASSWORD=2astazeY -e MSSQL_DB=dev -e MSSQL_USER=Kobeissi -e MSSQL_PASSWORD=7ellowEl7akey -p 1433:1433 --name mssqldev mssqldocker
-```
-Running with `docker-compose`
+Modify the env variables to your liking in the `docker-compose.yml`.
+
+Then spin up a new container using `docker-compose`
 ```
 docker-compose up
 ```
 
-NOTE: You can modify the env variables in the `docker-compose.yml`
-
 Note: MSSQL passwords must be at least 8 characters long, contain upper case, lower case and digits.  
 Configuration of the server will occur once it runs; the MSSQL* env variables are required for this step.
+
+Note: add a `-d` to run the container in background
 
 ## Connecting to the container
 To connect to the SQL Server in the container, you can docker exec with sqlcmd.
@@ -52,12 +50,14 @@ To connect to the SQL Server in the container, you can docker exec with sqlcmd.
 docker exec -it mssqldev /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P $SA_PASSWORD
 ```
 
+That's it!
+
 # Detailed Explanation
 Here's a detailed look at each of the files in the project.  
 
 ## docker-compose.yml
 
-Simplify the container run by organizing the ports and environment into the YAML file.  
+Simplifies the container build and run by organizing the ports and environment into the YAML file.  
 You can then simple call `docker-compose up` instead of the long `docker run...` command.  
 
 ## Dockerfile
