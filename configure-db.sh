@@ -9,10 +9,7 @@ while [[ $STATUS -eq 0 ]] || [[ $i -lt 30 ]]; do
 	STATUS=$(grep 'Server setup is completed' /var/opt/mssql/log/setup*.log | wc -l)
 done
 
-echo ============================================================================
-echo ===============        MSSQL SERVER STARTED       ==========================
-echo ============================================================================
-echo ''
+echo "======= MSSQL SERVER STARTED ========" | tee -a ./config.log
 
 # Prepare setup script with env variables - workaround for sqlcmd (-v seems to work on Windows only)
 echo :setvar MSSQL_DB $MSSQL_DB > param_setup.sql
@@ -23,7 +20,4 @@ cat setup.sql >> param_setup.sql
 # Run the setup script to create the DB and the schema in the DB
 /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P $SA_PASSWORD -d master -i param_setup.sql
 
-echo ''
-echo ============================================================================
-echo ===============       MSSQL CONFIG COMPLETE       ==========================
-echo ============================================================================
+echo "======= MSSQL CONFIG COMPLETE =======" | tee -a ./config.log
