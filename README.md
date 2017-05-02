@@ -50,6 +50,14 @@ To connect to the SQL Server in the container, you can docker exec with sqlcmd.
 docker exec -it mssqldev /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P $SA_PASSWORD
 ```
 
+## Inheriting from the image
+You might want to inherit from the image and build your own in order to carry out more provisioning.
+One example would be to import data into the database once it's setup.
+To do so, in your docker file start with `FROM mcmoe/mssqldocker:latest`.
+Then inject your command using `CMD`; it will ovveride the `CMD` in this image.
+Currently, the `CMD` calls a tail on the logs to trap the process.
+If you override it, you will have to worry about keeping the container running.
+
 That's it!
 
 # Detailed Explanation
