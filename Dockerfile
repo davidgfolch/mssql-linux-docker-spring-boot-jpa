@@ -14,6 +14,6 @@ RUN chmod +x /usr/config/configure-db.sh
 ENTRYPOINT ["./entrypoint.sh"]
 
 # Tail the setup logs to trap the process
-CMD ["tail -f /var/opt/mssql/log/setup*.log"]
+CMD ["tail -f /var/opt/mssql/log/errorlog*"]
 
 HEALTHCHECK --interval=15s CMD grep -q "MSSQL CONFIG COMPLETE" ./config.log
