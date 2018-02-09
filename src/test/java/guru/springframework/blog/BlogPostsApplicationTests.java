@@ -2,7 +2,6 @@ package guru.springframework.blog;
 
 import static org.junit.Assert.*;
 
-import com.sun.istack.internal.NotNull;
 import guru.springframework.blog.domain.User;
 import guru.springframework.blog.repositories.UserRepository;
 import org.junit.Test;
