@@ -6,10 +6,10 @@ services:
     image: mcmoe/mssqldocker
     environment:
       ACCEPT_EULA: Y
-      SA_PASSWORD: 2astazeY
-      MSSQL_DB: dev
-      MSSQL_USER: Kobeissi
-      MSSQL_PASSWORD: 7ellowEl7akey
+      SA_PASSWORD: mypass1.
+      MSSQL_DB: TestDb
+      MSSQL_USER: asmws
+      MSSQL_PASSWORD: mypass1.
     ports:
       - "1433:1433"
     container_name: mssqldev
