@@ -6,7 +6,7 @@
 * Test with spring-boot-jpa
 
 This project is based on:
-[https://github.com/mcmoe/mssqldocker.git]https://github.com/mcmoe/mssqldocker.git
+[https://github.com/mcmoe/mssqldocker.git](https://github.com/mcmoe/mssqldocker.git)
 
 # How to Run
 ## Clone this repo
