@@ -11,7 +11,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.4.4.RELEASE</version>
+        <version>LATEST</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <properties>
@@ -30,8 +30,8 @@
         </dependency>
         <dependency>
             <groupId>com.microsoft.sqlserver</groupId>
-            <artifactId>sqljdbc4</artifactId>
-            <version>4.0</version>
+            <artifactId>sqljdbc6-jre8</artifactId>
+            <version>6.2</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
