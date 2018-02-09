@@ -2,11 +2,16 @@
 
 * Build a docker image based on microsoft/mssql-server-linux
 * Configure the database with a database and user
+* Data persistence with volumes
+* Test with spring-boot-jpa
+
+This project is based on:
+[https://github.com/mcmoe/mssqldocker.git]https://github.com/mcmoe/mssqldocker.git
 
 # How to Run
 ## Clone this repo
 ```
-git clone https://github.com/mcmoe/mssqldocker.git
+git clone https://github.com/davidgfolch/mssql-linux-docker-spring-boot-jpa 
 ```
 
 ## From DockerHub
